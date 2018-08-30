@@ -1,0 +1,8 @@
+
+ul.problems {
+    list-style: none;
+}
+
+ul.problems li {
+    font-size: 1.2em;
+}

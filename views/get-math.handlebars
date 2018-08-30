@@ -1,0 +1,63 @@
+<div class="page-header">
+    <h1>Math <small>Let's do some math!</small></h1>
+</div>
+<form id="mathForm" class="form-inline" method="POST" action="/math" enctype="application/json">
+    <div class="form-group">
+        <label for="a" aria-hidden="true"></label>
+        <input type="text" class="form-control" id="a" name="a" placeholder="A">
+    </div>
+    <div class="form-group">
+        <select class="form-control" id="operator" name="operator" placeholder="Operator">
+            <option value="+">&nbsp;+ (add)&nbsp;</option>
+            <option value="-">&nbsp;- (subtract)&nbsp;</option>
+            <option value="*">&nbsp;* (multiply)&nbsp;</option>
+            <option value="/">&nbsp;/ (divide)&nbsp;</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="b" aria-hidden="true"></label>
+        <input type="text" class="form-control" id="b" name="b" placeholder="B">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+<br>
+<div class="panel panel-default">
+    <div class="panel-heading">Results</div>
+    <div class="panel-body">
+        <ul class="problems">
+            {{#problems}}
+            <li>
+                <p>{{a}} {{op}} {{b}} = {{result}}
+            </li>
+            {{/problems}}
+        </ul>
+    </div>
+</div>
+
+<script>
+
+    $('#mathForm').validate({
+        rules: {
+            a: {
+                required: true,
+                number: true,
+                normalizer: function (value) {
+                    return $.trim(value);
+                }
+            },
+            b: {
+                required: true,
+                number: true,
+                normalizer: function (value) {
+                    return $.trim(value);
+                }
+            }
+        },
+        highlight: function (element) {
+            $(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function (element) {
+            $(element).closest('.form-group').removeClass('has-error');
+        }
+    })
+</script>
