@@ -1,7 +1,5 @@
 # outward demo
-This is an Outward demo to demonstrate the required coding challenges.  
-
-In any other case I would have chosen to use a more structural rendering framework technology like React or Angular.  Due to the requirements I chose to use a more traditional methodology and used the following UI stack.
+This application is an express server being used to render pages using handlebars templating engine.
 - Express server
 - Handlebars templating engine
 - Bootstrap 3.x
